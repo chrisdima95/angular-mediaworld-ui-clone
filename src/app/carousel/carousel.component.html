@@ -1,0 +1,22 @@
+<div class="carousel-container">
+  @for (slide of slides; track $index) {
+    <div class="carousel-slide">
+      @if ($index === 0) {
+        <img 
+          [src]="slide.imgSrc" 
+          [alt]="slide.imgAlt"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      } @else {
+        <img 
+          [src]="slide.imgSrc" 
+          [alt]="slide.imgAlt"
+          loading="eager"
+          decoding="async"
+        />
+      }
+    </div>
+  }
+</div>

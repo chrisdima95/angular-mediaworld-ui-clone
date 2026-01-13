@@ -1,0 +1,86 @@
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 500px;
+  margin: 2rem 0;
+  overflow: hidden;
+  overflow-x: hidden !important;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  user-select: none;
+}
+
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: fadeCarousel 32s infinite;
+  animation-timing-function: ease-in-out;
+  border-radius: 0;
+  box-shadow: none;
+  transition: opacity 0.5s ease;
+  cursor: pointer;
+  /* Ottimizzazione performance animazioni */
+  will-change: opacity;
+  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden;
+}
+
+.carousel-slide img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  filter: brightness(1);
+  transition: transform 0.5s ease;
+  display: block;
+  /* Ottimizzazione performance transform */
+  will-change: transform;
+  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden;
+}
+
+.carousel-slide:hover img {
+  transform: scale(1.02);
+}
+
+/* Animazione fade */
+@keyframes fadeCarousel {
+  0%   { opacity: 0; }
+  3%   { opacity: 1; }
+  22%  { opacity: 1; }
+  25%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Delay animazioni per ogni slide */
+.carousel-slide:nth-child(1)  { animation-delay: 0s; }
+.carousel-slide:nth-child(2)  { animation-delay: 8s; }
+.carousel-slide:nth-child(3)  { animation-delay: 16s; }
+.carousel-slide:nth-child(4)  { animation-delay: 24s; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .carousel-container {
+    height: 400px;
+    margin: 1.5rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 300px;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    height: 250px;
+    margin: 0.5rem 0;
+  }
+}

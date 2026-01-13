@@ -1,0 +1,14 @@
+<div class="sconti-container">
+  <h2>Seleziona la tua fascia d’età per vedere gli sconti disponibili</h2>
+
+  <select [(ngModel)]="selectedAgeGroup">
+    <option value="" disabled selected>Seleziona fascia d’età</option>
+    <option value="under30">Under 30</option>
+    <option value="over45">Over 45</option>
+    <option value="other">Altro</option>
+  </select>
+
+  @if(selectedAgeGroup){
+    <p>{{ getDiscountMessage() }}</p>
+  }
+</div>

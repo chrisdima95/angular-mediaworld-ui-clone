@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #ffffff; /* sfondo bianco */
+  color: #333333; /* testo scuro per buona leggibilità */
+  font-family: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  box-sizing: border-box;
+  padding: 2rem;
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :host {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :host {
+    padding: 0.5rem;
+  }
+}

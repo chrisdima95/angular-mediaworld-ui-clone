@@ -1,0 +1,213 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  color: #000000;
+  box-sizing: border-box;
+  padding: 2rem 1rem;
+}
+
+.login-form,
+.user-info-container {
+  background: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  color: #000000;
+}
+
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000000;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  margin-bottom: 0.5rem;
+  user-select: none;
+  color: #000000;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="date"] {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  background: #ffffff;
+  color: #000000;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  box-shadow: none;
+  font-family: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="email"].error,
+input[type="password"].error,
+input[type="text"].error {
+  border-color: #d32f2f;
+  box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.1);
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  color: #999999;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus,
+input[type="date"]:focus {
+  background: #ffffff;
+  border-color: #666666;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  color: #000000;
+}
+
+button {
+  margin-top: 0.5rem;
+  padding: 14px 0;
+  background: linear-gradient(135deg, #d40000, #ff0000);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  letter-spacing: 0;
+  text-transform: none;
+  font-family: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  user-select: none;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #ff0000, #d40000);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Messaggio di errore */
+.error-message {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  color: #d32f2f;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  text-align: left;
+  user-select: none;
+}
+
+button:disabled,
+button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button:disabled:hover,
+button.disabled:hover {
+  background: linear-gradient(135deg, #d40000, #ff0000);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: none;
+}
+
+.logout-btn {
+  margin-top: 1rem;
+  padding: 14px 0;
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  letter-spacing: 0;
+  text-transform: none;
+  font-family: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  user-select: none;
+}
+
+.logout-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #000000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :host {
+    padding: 1.5rem 1rem;
+  }
+
+  .login-form,
+  .user-info-container {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  :host {
+    padding: 1rem;
+  }
+
+  .login-form,
+  .user-info-container {
+    padding: 1.5rem 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  :host {
+    padding: 0.5rem;
+  }
+
+  .login-form,
+  .user-info-container {
+    padding: 1.5rem 1rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+}

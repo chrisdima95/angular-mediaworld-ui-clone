@@ -1,0 +1,18 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="contactForm" class="contact-form">
+  <label for="nome">Nome:</label>
+  <input id="nome" type="text" formControlName="nome" required />
+
+  <label for="cognome">Cognome:</label>
+  <input id="cognome" type="text" formControlName="cognome" required />
+
+  <label for="email">Email:</label>
+  <input id="email" type="email" formControlName="email" required />
+
+  <label for="descrizione">Descrizione:</label>
+  <textarea id="descrizione" formControlName="descrizione" rows="4"></textarea>
+
+  <button type="submit" [disabled]="contactForm.invalid">Invia</button>
+</form>
+
+
+

@@ -1,0 +1,9 @@
+{
+  "name": "Mediaword",
+  "short_name": "Mediaword",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./"
+}
