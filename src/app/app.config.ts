@@ -1,6 +1,6 @@
 import { ApplicationConfig, provideZoneChangeDetection, isDevMode } from '@angular/core';
 import { provideRouter, withPreloading } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { IMAGE_CONFIG } from '@angular/common';
 import { provideServiceWorker } from '@angular/service-worker';
 
@@ -12,7 +12,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes, withPreloading(CriticalRoutesPreloadStrategy)), 
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideClientHydration(withEventReplay()),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
