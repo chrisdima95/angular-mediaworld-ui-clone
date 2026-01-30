@@ -1,7 +1,7 @@
 import { Component, DestroyRef, inject, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { RouterLink, Router, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+
 import { LoginService } from '../../services/login.service';
 import { CartService } from '../../services/cart.service';
 import { filter } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, FormsModule, CommonModule],
+  imports: [RouterLink, FormsModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush

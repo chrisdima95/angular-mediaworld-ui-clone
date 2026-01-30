@@ -1,5 +1,5 @@
 import { Component, OnInit, DestroyRef, inject, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterLink, Router } from '@angular/router';
 import { CartService, CartItem } from '../../services/cart.service';
 import { LoginService } from '../../services/login.service';
@@ -8,7 +8,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-carrello',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './carrello.component.html',
   styleUrls: ['./carrello.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

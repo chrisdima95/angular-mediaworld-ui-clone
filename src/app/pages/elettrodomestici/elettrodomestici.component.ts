@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CardsComponent, Card } from '../../cards/cards.component';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-elettrodomestici',
-  imports: [CardsComponent, CommonModule],
+  imports: [CardsComponent],
   templateUrl: './elettrodomestici.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

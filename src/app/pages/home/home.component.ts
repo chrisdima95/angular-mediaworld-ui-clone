@@ -5,7 +5,7 @@ import {
   OnInit,
   inject
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 import { CarouselComponent } from "../../carousel/carousel.component";
 import { Card, CardsComponent } from '../../cards/cards.component';
@@ -15,7 +15,7 @@ import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselComponent, CardsComponent, CommonModule],
+  imports: [CarouselComponent, CardsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush

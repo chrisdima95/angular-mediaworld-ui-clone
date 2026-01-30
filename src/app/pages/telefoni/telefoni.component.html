@@ -1,16 +1,25 @@
 <h2>Telefoni</h2>
 
-<p *ngIf="loading">Caricamento...</p>
-<p *ngIf="error">Errore nel caricamento prodotti.</p>
+@if (loading) {
+  <p>Caricamento...</p>
+}
+@if (error) {
+  <p>Errore nel caricamento prodotti.</p>
+}
 
-<div *ngIf="!loading && !error">
-  <div *ngIf="products.length === 0">Nessun telefono trovato.</div>
-
-  <div *ngFor="let p of products" style="border:1px solid #ddd; padding:12px; border-radius:8px; margin-bottom:12px;">
-    <img [src]="p.image_url" [alt]="p.name" style="width:200px; height:auto;" />
-    <h3>{{ p.name }}</h3>
-    <div>€ {{ p.price }}</div>
-    <small>Categoria: {{ p.category }}</small>
-    <p>{{ p.description }}</p>
+@if (!loading && !error) {
+  <div>
+    @if (products.length === 0) {
+      <div>Nessun telefono trovato.</div>
+    }
+    @for (p of products; track p) {
+      <div style="border:1px solid #ddd; padding:12px; border-radius:8px; margin-bottom:12px;">
+        <img [src]="p.image_url" [alt]="p.name" style="width:200px; height:auto;" />
+        <h3>{{ p.name }}</h3>
+        <div>€ {{ p.price }}</div>
+        <small>Categoria: {{ p.category }}</small>
+        <p>{{ p.description }}</p>
+      </div>
+    }
   </div>
-</div>
+}

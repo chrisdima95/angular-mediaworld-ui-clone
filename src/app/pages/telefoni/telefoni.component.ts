@@ -6,7 +6,7 @@ import {
   ChangeDetectorRef,
   PLATFORM_ID
 } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 
 import { ApiService, Product } from '../../services/api.service';
@@ -14,7 +14,7 @@ import { ApiService, Product } from '../../services/api.service';
 @Component({
   selector: 'app-telefoni',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './telefoni.component.html',
   styleUrl: './telefoni.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
