@@ -1,12 +1,15 @@
 # Mediaword 🛍️
 
-**Progetto ITS - Clone grafico di Mediaworld.it (Aprile 2025)**
+**Progetto ITS - Clone grafico di Mediaworld.it (Aprile 2025)**  
+**Aggiornamento (Gennaio 2026): Upgrade Angular 19 ➜ Angular 21 + Backend Django/DRF**
 
-Questo progetto è una ricostruzione grafica del sito **Mediaworld.it**, sviluppata come progetto per l'esame di Angular del corso ITS (Istituto Tecnico Superiore). L'applicazione replica l'interfaccia e l'esperienza utente del famoso e-commerce italiano, utilizzando le tecnologie Angular moderne.
+Questo progetto è una ricostruzione grafica del sito **Mediaworld.it**, sviluppata come progetto per l'esame di Angular del corso ITS (Istituto Tecnico Superiore). L'applicazione replica interfaccia e UX di un e-commerce, usando un frontend Angular moderno e (ora) un backend reale per fornire dati via API.
+
+---
 
 ## 📋 Descrizione
 
-Mediaword è un'applicazione e-commerce sviluppata in **Angular 19**, che emula l'aspetto grafico e la struttura del sito Mediaworld.it. Il progetto dimostra competenze in:
+Mediaword è un’applicazione e-commerce sviluppata in **Angular**, che emula l’aspetto grafico e la struttura del sito Mediaworld.it. Il progetto dimostra competenze in:
 
 - Sviluppo front-end con framework moderni
 - Progettazione UI/UX responsive
@@ -14,175 +17,222 @@ Mediaword è un'applicazione e-commerce sviluppata in **Angular 19**, che emula 
 - Routing e lazy loading
 - Server-Side Rendering (SSR)
 - Progressive Web App (PWA)
+- (Nuovo) Backend REST con **Django + Django REST Framework (DRF)**
+
+---
+
+## 🔄 Aggiornamenti principali (Gennaio 2026)
+
+Durante lo stage il progetto è stato aggiornato e reso più “robusto” per lo sviluppo reale:
+
+- ✅ **Upgrade Angular**: da **Angular 19** a **Angular 21** (passando per Angular 20)
+- ✅ **Allineamento toolchain**: CLI, builder e SSR allineati alla stessa major di Angular
+- ✅ **Aggiornamento TypeScript** alla versione compatibile con Angular 21
+- ✅ **Stabilizzazione build**:
+  - prerender/SSR resi più sicuri per non fallire in assenza di backend raggiungibile
+  - budgets aggiornati per evitare errori bloccanti in build (può restare qualche warning non bloccante)
+- ✅ **Aggiunta cartella `backend/`** con un backend **Django/DRF** collegato al frontend tramite proxy
+
+> Alcune migrazioni “opzionali” proposte da Angular sono state volutamente rimandate per eseguirle in modo controllato (commit separati), evitando refactor massivi automatici.
+
+---
 
 ## 🚀 Tecnologie Utilizzate
 
-- **Angular 19.2.18** - Framework principale
-- **TypeScript 5.7.2** - Linguaggio di programmazione
-- **RxJS 7.8.0** - Programmazione reattiva
+### Frontend
+- **Angular 21.1.x** - Framework principale
+- **TypeScript 5.9.x** - Linguaggio di programmazione
+- **RxJS 7.8.x** - Programmazione reattiva
 - **Angular SSR** - Server-Side Rendering
 - **Angular Service Worker** - Supporto PWA
-- **Express 4.18.2** - Server Node.js per SSR
 - **HTML5, CSS3** - Markup e styling
+
+### Backend
+- **Django** - Framework backend
+- **Django REST Framework (DRF)** - API REST
+- **django-cors-headers** - CORS (opzionale: con proxy spesso non necessario)
+
+---
 
 ## ✨ Funzionalità
 
 ### 🏠 Pagine Principali
 - **Home**: Pagina principale con carousel dei prodotti in evidenza
 - **TV**: Catalogo televisori
-- **Elettrodomestici**: Catalogo elettrodomestici (frigoriferi, lavatrici, forni, lavastoviglie)
+- **Elettrodomestici**: Catalogo elettrodomestici
 - **Telefoni**: Catalogo smartphone
 - **Sconti**: Pagina dedicata alle offerte speciali
 - **Contatti**: Pagina con form di contatto
-- **Login/Registrazione**: Sistema di autenticazione utente
+- **Login/Registrazione**: Sistema di autenticazione utente (prototipo)
 - **Carrello**: Gestione prodotti nel carrello
 - **Checkout**: Procedura di checkout (prototipo)
 
 ### 🔧 Caratteristiche Tecniche
+- **Componenti Standalone**: architettura moderna con componenti standalone
+- **Lazy Loading**: route lazy per performance migliori
+- **Routing Protetto**: guard per route riservate
+- **Gestione Stato**: servizi per carrello e autenticazione
+- **Change Detection Ottimizzata**: strategia `OnPush` per performance
+- **SSR**: configurazione per SEO e tempi di caricamento
+- **PWA**: service worker configurato
+- **Responsive Design**: ottimizzato per desktop/tablet/mobile
+- **(Nuovo) Integrazione Backend**: API reali Django/DRF consumate dal frontend tramite proxy
 
-- **Componenti Standalone**: Architettura moderna con componenti standalone
-- **Lazy Loading**: Caricamento lazy delle route per ottimizzare le performance
-- **Routing Protetto**: Guard per proteggere le route riservate agli utenti autenticati
-- **Gestione Stato**: Servizi per la gestione del carrello e dell'autenticazione
-- **Change Detection Ottimizzata**: Utilizzo di `OnPush` strategy per migliori performance
-- **SSR**: Server-Side Rendering configurato per migliorare SEO e tempi di caricamento
-- **PWA**: Service Worker configurato per funzionalità Progressive Web App
-- **Preloading Strategico**: Strategia personalizzata per il preload delle route critiche
-- **Responsive Design**: Interfaccia ottimizzata per dispositivi desktop, tablet e mobile
+---
 
 ## 📦 Installazione
 
 ### Prerequisiti
-
 Assicurati di avere installato:
-- **Node.js** (versione 18 o superiore)
-- **npm** (incluso con Node.js) oppure **yarn**
+- **Node.js** (versione recente supportata)
+- **npm** (incluso con Node.js)
 
-### Passi per l'installazione
+### Avvio (frontend)
+- Installa le dipendenze del progetto tramite npm
+- Avvia il server di sviluppo Angular
+- Apri l’app in browser sull’indirizzo locale standard di Angular
 
-1. **Clona il repository**
-   ```bash
-   git clone https://github.com/tuonome/mediaword.git
-   cd mediaword
-   ```
-
-2. **Installa le dipendenze**
-   ```bash
-   npm install
-   ```
-
-3. **Avvia il server di sviluppo**
-   ```bash
-   ng serve
-   ```
-   
-   Oppure:
-   ```bash
-   npm start
-   ```
-
-4. **Apri il browser**
-   
-   Naviga su `http://localhost:4200/`
-
-L'applicazione si ricaricherà automaticamente quando modifichi i file sorgente.
+---
 
 ## 🛠️ Script Disponibili
 
-- `ng serve` o `npm start` - Avvia il server di sviluppo
-- `ng build` - Compila il progetto per la produzione
-- `ng test` - Esegue i test unitari con Karma
-- `ng serve --configuration production` - Avvia in modalità produzione
+- **Server di sviluppo**: avvio dell’app in modalità sviluppo con reload automatico
+- **Build produzione**: compilazione ottimizzata per la distribuzione
+- **Test unitari**: esecuzione dei test (se configurati nel progetto)
 
-## 📁 Struttura del Progetto
+---
 
-```
-mediaword/
-├── src/
-│   ├── app/
-│   │   ├── layout/          # Componenti di layout (navbar, footer)
-│   │   ├── pages/           # Componenti delle pagine
-│   │   │   ├── home/
-│   │   │   ├── tv/
-│   │   │   ├── elettrodomestici/
-│   │   │   ├── telefoni/
-│   │   │   ├── carrello/
-│   │   │   ├── checkout/
-│   │   │   ├── login/
-│   │   │   ├── contatti/
-│   │   │   └── sconti/
-│   │   ├── services/        # Servizi (cart, login)
-│   │   ├── guards/          # Route guards
-│   │   ├── shared/          # Componenti condivisi
-│   │   ├── directives/      # Direttive personalizzate
-│   │   └── strategies/      # Strategie di routing
-│   ├── styles.css           # Stili globali
-│   └── index.html
-├── public/                  # Asset statici (immagini, manifest)
-├── angular.json             # Configurazione Angular
-├── package.json             # Dipendenze del progetto
-└── README.md
-```
+## 📁 Struttura del Progetto (panoramica)
+
+- `src/`: sorgenti Angular
+  - `src/app/layout/`: componenti di layout (navbar, footer)
+  - `src/app/pages/`: pagine dell’app (home, tv, elettrodomestici, telefoni, carrello, checkout, login, contatti, ecc.)
+  - `src/app/services/`: servizi (API, carrello, auth, ecc.)
+  - `src/app/guards/`: route guards
+- `public/`: asset statici (immagini, manifest, ecc.)
+- `backend/`: backend Django/DRF (nuovo)
+- `proxy.conf.json`: configurazione proxy per inoltrare le chiamate `/api/...` a Django
+- `angular.json`: configurazione Angular (incl. budgets/build settings)
+- `package.json`: dipendenze e script del progetto
+
+---
 
 ## 🎨 Design e UI
 
-Il progetto replica fedelmente l'interfaccia grafica di Mediaworld.it, mantenendo:
+Il progetto replica fedelmente l’interfaccia grafica di Mediaworld.it, mantenendo:
 
-- **Schema colori**: Colori caratteristici del brand (rosso #d40000, nero, bianco)
-- **Tipografia**: Font Montserrat e Inter
-- **Layout**: Struttura e disposizione degli elementi simile al sito originale
-- **Componenti**: Cards prodotti, carousel, navbar, footer
-- **Responsive**: Design adattivo per tutti i dispositivi
+- **Schema colori**: rosso/nero/bianco
+- **Tipografia**: Montserrat e Inter
+- **Layout**: struttura simile al sito originale
+- **Componenti**: cards prodotti, carousel, navbar, footer
+- **Responsive**: adattivo su più dispositivi
+
+---
 
 ## ⚙️ Configurazione
 
-### Variabili d'Ambiente
-
-Al momento non sono necessarie variabili d'ambiente per il funzionamento dell'applicazione.
+### Variabili d’Ambiente
+Attualmente non sono richieste variabili d’ambiente obbligatorie per usare l’app in sviluppo.
 
 ### Build di Produzione
+La build di produzione genera gli output nella cartella `dist/` del progetto.
 
-Per creare una build ottimizzata per la produzione:
+---
 
-```bash
-ng build --configuration production
-```
+# 🧩 Backend Django/DRF
 
-I file compilati saranno disponibili nella cartella `dist/mediaword/`.
+Nel repository è presente una cartella `backend/` che contiene un backend **Django + DRF** pensato per fornire dati reali al frontend.
+
+## 🎯 Obiettivo del backend
+Esporre due API principali e collegarle ad Angular in modo semplice:
+
+### ✅ Ping API
+- **Endpoint**: `/api/ping/`
+- **Scopo**: verificare che backend e proxy funzionino correttamente
+- **Risposta**: JSON con stato “ok”
+
+### ✅ Products API (CRUD + filtro)
+- **Endpoint**: `/api/products/`
+- **Operazioni**:
+  - lista prodotti
+  - creazione prodotto (utile in sviluppo)
+  - dettaglio singolo prodotto
+- **Filtro**:
+  - parametro `category` per filtrare i prodotti (es. telefoni, tv, elettrodomestici)
+
+## 🔌 Collegamento Angular ⇄ Django (Proxy)
+Per evitare problemi di CORS e usare URL puliti nel frontend:
+- Angular usa chiamate relative come `/api/...`
+- il proxy inoltra automaticamente le richieste al backend Django locale
+
+Risultato: in sviluppo lavori “come se” Angular e Django fossero sullo stesso dominio.
+
+## 🧠 SSR: chiamate API solo nel browser
+Con SSR attivo, alcune chiamate potrebbero partire lato server. Per evitare errori e per vedere le chiamate in Network del browser:
+- alcune richieste sono protette da una **SSR guard** (eseguite solo in ambiente browser)
+
+Esempi tipici nel progetto:
+- **Home**: chiamata ping al backend con guard SSR
+- **Telefoni**: caricamento prodotti filtrati con guard SSR
+
+## 🌱 Seed prodotti (popolamento rapido)
+È previsto un piccolo “seed” per inserire rapidamente un set di prodotti di esempio nel database, senza dover creare tutto manualmente tramite interfaccia/endpoint.
+
+---
+
+## ▶️ Avvio completo (Full Stack)
+
+Per lavorare in modalità full-stack:
+- avvia prima il backend Django
+- avvia poi il frontend Angular con proxy attivo
+- verifica che gli endpoint `/api/...` rispondano tramite l’app
+
+---
 
 ## 🔒 Autenticazione
 
 Il sistema di autenticazione è implementato come prototipo:
 
-- **Login**: Accetta qualsiasi email valida e password non vuota
-- **Registrazione**: Crea un nuovo utente con email e password
-- **Storage**: I dati utente vengono salvati nel localStorage
-- **Guards**: Route protette con `AuthGuard` e `NotAuthGuard`
+- **Login**: accetta qualsiasi email valida e password non vuota
+- **Registrazione**: crea un utente con email e password
+- **Storage**: dati salvati nel localStorage
+- **Guards**: route protette con `AuthGuard` e `NotAuthGuard`
+
+---
 
 ## 🛒 Carrello
 
 Il carrello implementa:
 
-- Aggiunta/rimozione prodotti
-- Modifica quantità
-- Calcolo totale automatico
-- Persistenza durante la sessione (non salvato in localStorage)
-- Integrazione con il sistema di checkout
+- aggiunta/rimozione prodotti
+- modifica quantità
+- calcolo totale automatico
+- persistenza durante la sessione
+- integrazione con checkout (prototipo)
+
+---
 
 ## 📝 Note sul Progetto
 
-- Questo progetto è stato sviluppato **esclusivamente a scopo didattico** per il corso ITS
-- Il sito è una **clonazione grafica** di Mediaworld.it, non include funzionalità di e-commerce reali
-- Non vengono effettuati acquisti reali
-- I dati degli utenti sono gestiti localmente nel browser
+- progetto sviluppato **a scopo didattico**
+- clonazione grafica: non include acquisti reali
+- nessun pagamento o transazione reale
+- dati utenti gestiti localmente nel browser
+- backend Django/DRF usato per simulare dati “reali” e integrazione frontend-backend
+
+---
 
 ## 🤝 Contribuire
 
-Questo è un progetto didattico personale. Se hai suggerimenti o feedback, sono benvenuti!
+Questo è un progetto didattico personale. Suggerimenti e feedback sono benvenuti!
+
+---
 
 ## 📄 Licenza
 
 Questo progetto è sviluppato per scopi didattici nell'ambito del corso ITS.
+
+---
 
 ## 👤 Autore
 
