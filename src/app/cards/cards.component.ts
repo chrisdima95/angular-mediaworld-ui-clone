@@ -1,7 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { ButtonComponent } from '../shared/button/button.component'; 
-import { CommonModule } from '@angular/common';
+
 import { CartService } from '../services/cart.service';
 
 export interface Card {
@@ -22,7 +22,7 @@ export interface Card {
 @Component({
   selector: 'app-cards',
   standalone: true,
-  imports: [RouterModule, ButtonComponent, CommonModule],
+  imports: [RouterModule, ButtonComponent],
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
